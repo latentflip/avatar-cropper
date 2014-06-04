@@ -1,7 +1,7 @@
 //This is so gross
 
 var test = require('tape');
-var crop = require('../crop-image');
+var crop = require('../lib/crop-image');
 
 var cropData = crop._getCropData;
 
