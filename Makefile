@@ -7,6 +7,7 @@ clean:
 
 dist: templates.js
 
+demo: server
 server: dist
 	./node_modules/.bin/beefy demo.js --cwd demo --live --open
 

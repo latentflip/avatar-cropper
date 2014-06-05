@@ -4,7 +4,7 @@ var CropperView = require('./lib/cropper-view').extend({
 });
 var ImageModel = require('./lib/image-model');
 
-module.exports.createCropper = function (opts) {
+function Cropper (opts) {
     var model = new ImageModel(opts || {});
 
     var view = new CropperView({
@@ -15,4 +15,10 @@ module.exports.createCropper = function (opts) {
     view.render();
 
     return view;
-};
+}
+
+Cropper.createCropper = function (opts) {
+    return new Cropper(opts);
+}
+
+module.exports = Cropper;

@@ -27,3 +27,13 @@ setInterval(function () {
         c2.model.panY = -150;
     }
 }, 100);
+
+document.querySelector('input[type=file]').addEventListener('change', function (e) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        var c4 = addCropper('[role=cropper-4]', { src: e.target.result, scale: 1 });
+    }.bind(this);
+
+    reader.readAsDataURL(e.target.files[0]);
+});

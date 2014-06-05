@@ -20,6 +20,17 @@ templates['cropper'] = function (context, runtime) {
               var element = document.createElement('div');
               var expr;
               element.setAttribute('class', 'cropper-mask');
+              expr = (
+                runtime.helpers.EXPRESSION('concat', [
+                  runtime.helpers.STREAMIFY_LITERAL.call(template, "overflow: hidden;\n            width: "),
+                  runtime.helpers.STREAMIFY_BINDING.call(template, context, 'model.canvasWidth'),
+                  runtime.helpers.STREAMIFY_LITERAL.call(template, "px;\n            height: "),
+                  runtime.helpers.STREAMIFY_BINDING.call(template, context, 'model.canvasHeight'),
+                  runtime.helpers.STREAMIFY_LITERAL.call(template, "px;")
+                ])
+              );
+              element.setAttribute('style', expr.value);
+              expr.on('change', element.setAttribute.bind(element, 'style'));
               (function (parent) {
                 (function (parent) {
                   var element = document.createElement('img');

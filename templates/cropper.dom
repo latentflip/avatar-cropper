@@ -1,6 +1,10 @@
 <div class='cropper'>
     {{#if model.src }}
-        <div class='cropper-mask'>
+        <div class='cropper-mask' style="
+            overflow: hidden;
+            width: {{model.canvasWidth}}px;
+            height: {{model.canvasHeight}}px;
+        ">
             <img src="{{model.src}}">
         </div>
         <input name="scale" type="range" min="{{model.minScale}}" max="{{model.maxScale}}" step="0.1" value="{{model.scale}}">
