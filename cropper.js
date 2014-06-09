@@ -1,15 +1,16 @@
-var templates = require('./templates');
-var CropperView = require('./lib/cropper-view').extend({
-    template: templates.cropper
-});
+var CropperView = require('./lib/cropper-view');
 var ImageModel = require('./lib/image-model');
+var templates = require('./templates');
+
 
 function Cropper (opts) {
     var model = new ImageModel(opts || {});
+    var ViewClass = CropperView.extend({
+        template: opts.template || templates.cropper
+    });
 
-    var view = new CropperView({
+    var view = new ViewClass({
         model: model,
-        template: templates.cropper
     });
 
     view.render();
@@ -19,6 +20,6 @@ function Cropper (opts) {
 
 Cropper.createCropper = function (opts) {
     return new Cropper(opts);
-}
+};
 
 module.exports = Cropper;
