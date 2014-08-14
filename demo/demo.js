@@ -4,6 +4,14 @@ window.views = [];
 function addCropper(sel, opts) {
     var cropper = Cropper.createCropper(opts);
     document.querySelector(sel).appendChild(cropper.el);
+    var button = document.createElement('button');
+    button.innerHTML = 'crop';
+    button.addEventListener('click', function () {
+        var img = document.createElement('img');
+        img.src = cropper.getCroppedImage();
+        document.body.appendChild(img);
+    });
+    document.querySelector(sel).appendChild(button);
     views.push(cropper);
     return cropper;
 }
