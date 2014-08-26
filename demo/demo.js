@@ -16,9 +16,9 @@ function addCropper(sel, opts) {
     return cropper;
 }
 
-var c1 = addCropper('[role=cropper]', { src: '/small-avatar.png', scale: 4.2857 });
-var c2 = addCropper('[role=cropper-2]', { src: '/small-avatar.png', scale: 3 });
-var c3 = addCropper('[role=cropper-3]', { src: '/big-avatar.png', scale: 3 });
+var c1 = addCropper('[data-hook~=cropper]', { src: '/small-avatar.png', scale: 4.2857 });
+var c2 = addCropper('[data-hook~=cropper-2]', { src: '/small-avatar.png', scale: 3 });
+var c3 = addCropper('[data-hook~=cropper-3]', { src: '/big-avatar.png', scale: 3 });
 
 c2.model.panX = -150;
 c2.model.panY = -150;
@@ -40,7 +40,7 @@ document.querySelector('input[type=file]').addEventListener('change', function (
     var reader = new FileReader();
 
     reader.onload = function (e) {
-        var c4 = addCropper('[role=cropper-4]', { src: e.target.result, scale: 1 });
+        var c4 = addCropper('[data-hook~=cropper-4]', { src: e.target.result, scale: 1 });
     }.bind(this);
 
     reader.readAsDataURL(e.target.files[0]);
