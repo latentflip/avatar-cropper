@@ -15,6 +15,10 @@ var makeData = function () {
             width: 100,
             height: 100
         },
+        output: {
+            maxWidth: 500,
+            maxHeight: 500
+        },
         scale: 1,
         panX: 0,
         panY: 0
